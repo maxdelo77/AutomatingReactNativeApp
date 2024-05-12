@@ -1,4 +1,4 @@
-package com.automatingreactnativeapp
+package it.berry.automatingreactnativeapp
 
 import android.app.Application
 import com.facebook.react.PackageList
