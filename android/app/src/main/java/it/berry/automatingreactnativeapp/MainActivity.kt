@@ -1,4 +1,4 @@
-package com.automatingreactnativeapp
+package it.berry.automatingreactnativeapp
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
