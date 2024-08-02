@@ -25,6 +25,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+if (__DEV__) {
+  require('./ReactotronConfig');
+}
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
