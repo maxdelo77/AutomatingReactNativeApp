@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -24,19 +23,22 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {React$Node} from './TypesAndInterfaces/AppTypes';
 
-if (__DEV__) {
+/*if (__DEV__) {
   require('./ReactotronConfig');
-}
+}*/
 
-type SectionProps = PropsWithChildren<{
+type SectionProps = {
+  children: React$Node | string | (string | React$Node)[];
   title: string;
-}>;
+};
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+const Section: ({children, title}: SectionProps) => React$Node = ({
+  children,
+  title,
+}): React$Node => {
   const isDarkMode = useColorScheme() === 'dark';
-
-  console.log('Section App.tsx');
 
   return (
     <View style={styles.sectionContainer}>
@@ -60,9 +62,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
       </Text>
     </View>
   );
-}
+};
 
-function App(): React.JSX.Element {
+const App: () => React$Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -83,6 +85,9 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Section title="Typescript">
+            Now with Typescript :)
+          </Section>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
@@ -101,7 +106,7 @@ function App(): React.JSX.Element {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {
