@@ -21,11 +21,26 @@ platform :android do
     gradle(task: "test")
   end
 
+  desc "Runs clean"
+  lane :clean do
+      gradle(task: "clean AssembleRelease")
+  end
+
+  desc "Runs bundle"
+  lane :build do
+      clean
+      gradle(task: "bundleRelease")
+  end
+
+  lane :internal do
+    upload_to_play_store(track: "internal")
+  end
+
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
     gradle(task: "clean assembleRelease")
     crashlytics
-  
+
     # sh "your_script.sh"
     # You can also use other beta testing services here
   end
