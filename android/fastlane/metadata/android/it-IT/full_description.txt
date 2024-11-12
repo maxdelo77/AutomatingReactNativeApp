@@ -1,0 +1,8 @@
+Una semplice applicazione React Native con le configurazioni minime necessarie per la sua pubblicazione. 
+
+In particolare abbiamo
+
+1. Applicazione Typescript con la configurazione di eslint e prettier
+2. Semplici immagini caricate 
+3. Nome del pacchetto modificato
+4. Logica per legare il versionamento delle app alla versione dentro il package.json
